@@ -1,12 +1,14 @@
-package mx.com.ananda.primavera.azafran.model;
+package mx.com.ananda.primavera.azafran.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 @Entity
-@Table(name = "tbl_personal")
-public class PersonalAlmacenModel {
+@Table(name = "tbl_surtidor")
+public class SurtidorModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,9 +23,6 @@ public class PersonalAlmacenModel {
 
     @Column(name = "clave_personal")
     private String clavePersonal;
-
-    @Column(name = "tipo_personal")
-    private String tipoPersonal;
 
     @OneToMany(mappedBy = "personal",cascade = CascadeType.ALL)
     private List<PickingModel> listaPicking;

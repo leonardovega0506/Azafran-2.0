@@ -1,10 +1,12 @@
-package mx.com.ananda.primavera.azafran.model;
+package mx.com.ananda.primavera.azafran.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Data
 @Entity
 @Table(name = "tbl_picking")
 public class PickingModel {
@@ -12,6 +14,9 @@ public class PickingModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_picking")
     private Long idPicking;
+
+    @Column(name = "abs_entry")
+    private Long absEntry;
 
     @Column(name = "fecha_picking")
     private LocalDate pickDate;
@@ -27,6 +32,10 @@ public class PickingModel {
     private RegistroModel registro;
 
     @ManyToOne
-    @JoinColumn(name = "personal")
-    private PersonalAlmacenModel personal;
+    @JoinColumn(name = "surtidor")
+    private SurtidorModel surtidor;
+
+    @ManyToOne
+    @JoinColumn(name = "verificador")
+    private VerificadorModel verificador;
 }

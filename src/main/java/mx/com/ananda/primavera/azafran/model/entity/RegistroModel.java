@@ -1,10 +1,12 @@
-package mx.com.ananda.primavera.azafran.model;
+package mx.com.ananda.primavera.azafran.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Data
 @Entity
 @Table(name = "tbl_registro")
 public class RegistroModel {
@@ -46,5 +48,11 @@ public class RegistroModel {
 
     @Column(name = "hora_termino_verificado")
     private LocalDate horaTerminoVerificado;
+
+    @ManyToOne
+    private SurtidorModel surtidor;
+
+    @ManyToOne
+    private VerificadorModel verificador;
 
 }
