@@ -1,8 +1,9 @@
 package mx.com.ananda.primavera.azafran.model.entity;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -47,7 +48,10 @@ public class RegistroModel {
     private LocalDate fechaTerminoVerificado;
 
     @Column(name = "hora_termino_verificado")
-    private LocalDate horaTerminoVerificado;
+    private LocalTime horaTerminoVerificado;
+
+    @Column(name = "estatus_registro")
+    private String estatusRegistro;
 
     @ManyToOne
     private SurtidorModel surtidor;

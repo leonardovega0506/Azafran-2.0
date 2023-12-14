@@ -1,6 +1,6 @@
 package mx.com.ananda.primavera.azafran.model.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -24,6 +24,6 @@ public class SurtidorModel {
     @Column(name = "clave_personal")
     private String clavePersonal;
 
-    @OneToMany(mappedBy = "personal",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "surtidor",cascade = CascadeType.ALL)
     private List<PickingModel> listaPicking;
 }
